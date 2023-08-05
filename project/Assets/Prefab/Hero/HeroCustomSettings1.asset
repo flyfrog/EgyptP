@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353625dcf8304ba1973e0ef48796b4fb, type: 3}
+  m_Name: HeroCustomSettings1
+  m_EditorClassIdentifier: 
+  Name: "\u0416\u0430\u0431\u0435\u043D\u044B\u0448"
+  Rarity: 1
+  HeroView: {fileID: 7882970976455913248, guid: 3861394d22e163a499ce784967983006, type: 3}
+  HeroUIView: {fileID: 7357877000972400159, guid: 6cc17f89aa9c4e040bbe547cc23a8b7c, type: 3}
+  TrailColorGradient:
+    StartColor: {r: 0, g: 1, b: 1, a: 1}
+    EndColor: {r: 0, g: 0, b: 1, a: 1}
+  MyGroundTile: {fileID: 11400000, guid: 6e33f530b9c92ec4e9ce3f0f1b8dd29e, type: 2}
+  BaseSkills:
+    MoveSpeed: 0
+    RotationSpeed: 400
+    HeightCam: 11
+    ChanceFoundItemInChest: 1

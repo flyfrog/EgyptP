@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353625dcf8304ba1973e0ef48796b4fb, type: 3}
+  m_Name: HeroCustomSettings2
+  m_EditorClassIdentifier: 
+  Name: Keksdf
+  Rarity: 3
+  HeroView: {fileID: 1401977621573232300, guid: 84035318c894ff347920dfb0180c5957, type: 3}
+  HeroUIView: {fileID: 7357877000972400159, guid: e4944d1d29562de4ea319673f2ad73ed, type: 3}
+  TrailColorGradient:
+    StartColor: {r: 0.65938807, g: 1, b: 0, a: 1}
+    EndColor: {r: 1, g: 0, b: 0.13757896, a: 1}
+  MyGroundTile: {fileID: 11400000, guid: bd81aaff7710e254f801b7e35c4ed9b6, type: 2}
+  BaseSkills:
+    MoveSpeed: 7
+    RotationSpeed: 900
+    HeightCam: 33
+    ChanceFoundItemInChest: 2
