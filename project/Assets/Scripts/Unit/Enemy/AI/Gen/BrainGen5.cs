@@ -4,16 +4,20 @@ using MyBox;
 using UnityEngine;
 
 /// <summary>
-/// Ходит случайно но ближе к центру, видя колайдер игрока пытается напасть
+/// Тут нужно добавить чтобы он собирал ресурсы и добавить состояния чтобы на базе этого делать более умный интелект
+/// Этот интерект должен быть похож на игрока он должен быть расширяем за счет рандома при инициализации, агресивность и сколько он захватывает земли
+/// А также тип движения и расширения тереитории буду далее двигаться улучшая его а другие 4 просто болванчики которых будет 30 процентов
 /// </summary>
-public class BrainGen4 : EnemyBrainBase
+public class BrainGen5 : EnemyBrainBase
 {
     private float _lastDistance = Single.MaxValue;
+
+
     private int _randomPointSelectCount = 5; // из скольки точек будет брать ближайшую к центру игры
     private float _sensorDistance = 10f;
     private int _countRaycasts = 12;
 
-    private float _timeCheckEnemy = 0.6f;
+    private float _timeCheckEnemy = 0.5f;
     private float _currentTimer = 0f;
 
     protected override Vector3 GetTarget()

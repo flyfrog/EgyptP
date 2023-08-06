@@ -21,7 +21,7 @@ MonoBehaviour:
     EndColor: {r: 0, g: 0, b: 1, a: 1}
   MyGroundTile: {fileID: 11400000, guid: 6e33f530b9c92ec4e9ce3f0f1b8dd29e, type: 2}
   BaseSkills:
-    MoveSpeed: 0
+    MoveSpeed: 5
     RotationSpeed: 400
     HeightCam: 11
     ChanceFoundItemInChest: 1

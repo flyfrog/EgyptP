@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
 
         var settings = _enemySettingsController.GetCharacterSettings();
         newEnemy.Init(10,settings);
-        newEnemy.SetBrain(_brains[3]); // тут сатвлю поколение мозга которое хочу вставить в врага
+        newEnemy.SetBrain(_brains[4]); // тут сатвлю поколение мозга которое хочу вставить в врага
     }
 
     public void StopSpawning()
