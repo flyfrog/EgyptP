@@ -12,7 +12,7 @@ public class BrainGen4 : EnemyBrainBase
 
 
     private int _randomPointSelectCount = 5; // из скольки точек будет брать ближайшую к центру игры
-    private float _sensorDistance = 20f;
+    private float _sensorDistance = 10f;
     private int _countRaycasts = 12;
 
     private float _timeCheckEnemy = 0.5f;
@@ -25,7 +25,7 @@ public class BrainGen4 : EnemyBrainBase
 
     protected override void Tick()
     {
-        var curDistance = Vector3.Distance(_curentTarget, _transform.position);
+
 
         if (_currentTimer < _timeCheckEnemy)
         {
@@ -37,12 +37,14 @@ public class BrainGen4 : EnemyBrainBase
             // тут проверяка времени и делать через секунду проверку колайдера варага
             if (GeNearEnemyTarget(out var target))
             {
+                Debug.Log("GeNearEnemyTarget");
                 _curentTarget = target;
+                _lastDistance = Single.MaxValue;
                 return;
             }
         }
 
-
+        var curDistance = Vector3.Distance(_curentTarget, _transform.position);
         if (curDistance >= _lastDistance)
         {
             _curentTarget = GetRandomPointNearToCenter();
@@ -56,6 +58,7 @@ public class BrainGen4 : EnemyBrainBase
     private bool GeNearEnemyTarget(out Vector3 target)
     {
         var casts = CastMultipleRaycasts(12);
+
         Vector3 newTarget = Vector3.zero;
 
         float distance = Single.MaxValue;
@@ -128,28 +131,35 @@ public class BrainGen4 : EnemyBrainBase
 
     private List<RaycastHit2D> CastMultipleRaycasts(int countRaycast)
     {
-        List<RaycastHit2D> hits = new();
+        List<RaycastHit2D> targets = new();
         Vector2 origin = _transform.position;
 
         float angleStep = 360f / countRaycast;
         for (int i = 0; i < countRaycast; i++)
         {
             var currentAngle = angleStep * i;
-            var hit = RaycastToAngle(origin, currentAngle, _sensorDistance);
-            if (hit.collider != null)
+            var hits = RaycastToAngle(origin, currentAngle, _sensorDistance);
+
+            foreach (var hit in hits)
             {
-                hits.Add(hit);
+                if (hit.collider == null)
+                {
+                    continue;
+                }
+
+                targets.Add(hit);
             }
         }
 
-        return hits;
+        return targets;
     }
 
-    private RaycastHit2D RaycastToAngle(Vector2 origin, float angleDegrees, float maxDistance)
+    private RaycastHit2D[] RaycastToAngle(Vector2 origin, float angleDegrees, float maxDistance)
     {
-        Vector2 direction = Quaternion.Euler(0, 0, angleDegrees) * Vector2.right;
+        Vector2 direction = Quaternion.Euler(0, 0, angleDegrees) * Vector2.right * maxDistance;
         //RaycastHit2D hit = Physics2D.Raycast(origin, direction, maxDistance, obstacleLayer);
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, maxDistance);
-        return hit;
+        var hits = Physics2D.RaycastAll(origin, direction, maxDistance);
+        Debug.DrawRay(origin, direction, Color.green);
+        return hits;
     }
 }
